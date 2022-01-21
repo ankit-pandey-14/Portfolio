@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$color1 : #03a9f4;
+
+@mixin flxBx($fl-dr, $jst-cnt, $aln-itm) {
+    display: flex;
+    flex-direction: $fl-dr;
+    justify-content: $jst-cnt;
+    align-items: $aln-itm;
+}
+@mixin txtDgn($clr, $fn-sz, $fn-wt, $lt-sp) {
+    color: $clr;
+    font-size: $fn-sz;
+    font-weight: $fn-wt;
+    text-transform: uppercase;
+    letter-spacing: $lt-sp;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: lightblue;
+    min-height: 100vh;
+}
+a{
+    text-decoration: none;
+}
+.backBtn{
+    color: #003147;
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    i{
+        margin-right: 7px;
+    }
+}
+
+.wrapper{
+    @include flxBx(row, center, center);
+    .container{
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        min-height: 1200px;
+        background: #fff;
+        margin: 50px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        box-shadow: 0 35px 55px rgba($color: #000000, $alpha: 0.1);
+    
+        .left-side{
+            position: relative;
+            background: #003147;
+            padding: 40px;
+    
+            .profileText{
+                position: relative;
+                @include flxBx(column, center, center);
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
+                .imgBx{
+                    position: relative;
+                    width: 200px;
+                    height: 220px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+    
+                h2{
+                    margin-top: 20px;
+                    text-align: center;
+                    line-height: 1.4em;
+                    @include txtDgn(#efefef, 1.5em, 600, 2px);
+                    span{
+                        font-size: 0.8em;
+                        font-weight: 400;
+                    }
+                }
+            }
+    
+            .contactInfo{
+                padding-top: 40px;
+                .title{
+                    @include txtDgn(#eee, 1.3em, 600, 1px);
+                    margin-bottom: 20px;
+                }
+                
+                ul{
+                    position: relative;
+                    li{
+                        position: relative;
+                        list-style: none;
+                        margin: 10px 0;
+                        cursor: pointer;
+                        .icon{
+                            display: inline-block;
+                            width: 30px;
+                            font-size: 18px;
+                            color: $color1;
+                        }
+                        span, a{
+                            color: #fff;
+                            font-weight: 300;
+                        }
+                    }
+                }
+                &.education{
+                    li{
+                        margin-bottom: 15px;
+                        h5{
+                            color: $color1;
+                        }
+                        h4{
+                            margin-top: 5px;
+                            color: #fff;
+                            font-weight: 300;
+                            &:nth-child(2){
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+                &.language{
+                    .percent{
+                        position: relative;
+                        width: 100%;
+                        height: 6px;
+                        background: #081921;
+                        display: block;
+                        margin: 20px 0;
+                        div{
+                            background: $color1;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .right-side{
+            position: relative;
+            background: #fff;
+            padding: 40px;
+            .about{
+                margin-bottom: 50px;
+                li, p{
+                    color: #333;
+                }
+                .title2{
+                    @include txtDgn(#003147, 1.5em, 700, 1px);
+                }
+                .box{
+                    @include flxBx(row, flex-start, stretch);
+                    margin: 23px 0;
+                    .year-company{
+                        min-width: 150px;
+                        h5{
+                            @include txtDgn(#848c90, 0.8em, 600, 0);
+                        }
+                    }
+                    .text{
+                        h4{
+                            @include txtDgn(#2a7da2, 16px, 700, 0);
+                        }
+                    }
+                }
+    
+                &.skills{
+                    .box{
+                        position: relative;
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: 150px 1fr;
+                        justify-content: center;
+                        align-items: center;
+                        h4{
+                            @include txtDgn(#848c99, 1em, 600, 0)
+                        }
+                        .percent{
+                            width: 100%;
+                            height: 10px;
+                            background: #f0f0f0;
+                            border-radius: 14px;
+                            overflow: hidden;
+                            div{
+                                height: 100%;
+                                background: $color1;
+                                font-size: 9px;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+    
+                &.interest{
+                    ul{
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        li{
+                            list-style: none;
+                            font-weight: 500;
+                            font-size: 18px;
+                            margin: 14px 0;
+                            .bi{
+                                color: $color1;
+                                font-size: 23px;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 1000px){
+    .wrapper .container{
+        margin: 10px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .wrapper .container .right-side .about.interest ul{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px){
+    .backBtn{
+        margin: 23px;
+    }
+    .wrapper .container .right-side .about .box{
+        flex-direction: column;
+        margin: 32px 0;
+    }
+    .wrapper .container .right-side .about .box .year-company{
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .wrapper .container .right-side .about .box .year-company h5{
+        margin-bottom: 3px;
+    }
+
+    .wrapper .container .right-side .about .box .text h4{
+        font-size: 19px;
+    }
+    .wrapper .container .right-side .about.skills .box,
+    .wrapper .container .right-side .about.interest ul{
+        margin-top: 5px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
